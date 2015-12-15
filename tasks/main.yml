@@ -1,9 +1,9 @@
 ---
-- name: install dotdeb gpg key
+- name: Install dotdeb gpg key
   apt_key:
     url: '{{ dotdeb_gpg_key }}'
 
-- name: add main dotdeb repository
+- name: Add main dotdeb repository
   apt_repository:
     repo: '{{ item }}'
     state: present
@@ -12,7 +12,7 @@
     - "deb http://packages.dotdeb.org {{ ansible_distribution_release }} all"
     - "deb-src http://packages.dotdeb.org {{ ansible_distribution_release }} all"
 
-- name: add extra dotdeb repositories
+- name: Add extra dotdeb repositories
   apt_repository:
     repo: 'deb http://packages.dotdeb.org {{ item }} all'
     state: present
